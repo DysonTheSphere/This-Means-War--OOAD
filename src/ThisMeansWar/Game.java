@@ -9,9 +9,10 @@ public class Game
 
 	public static void main(String[] args)
 	{
-		//test
-		PlayerFactory playerFactory = new TwoPlayerFactory();
-		ArrayList<Player> players = playerFactory.createPlayers();
+		//Create Player Factory
+		PlayerListFactory playerFactory = new PlayerListFactory();
+		//Create Two Players
+		ArrayList<Player> players = playerFactory.getPlayerList(2);
 		Player curr = players.get(0);
 		for (int s = 0; s < 27; s++)
 			System.out.println(curr.getCard());
