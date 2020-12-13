@@ -28,6 +28,10 @@ public class Deck
 	
 	public Card deal()
 	{
+		//Check if out of cards
+		if (cards.isEmpty())
+			return null;
+		
 		//Generate a random index to pull a random card from the ordered deck
 		int rand = (int) (Math.random() * cards.size());
 		Card dealt = cards.get(rand);

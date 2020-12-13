@@ -1,15 +1,16 @@
 package ThisMeansWar;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Player
 {
 	//Used as a queue as it is an implementation of Interface Queue<E>
-	private ArrayList<Card> hand = new ArrayList<Card>();
+	private ArrayList<Card> hand;
 	
-	public Player(ArrayList<Card> hand)
+	public Player(List<Card> hand)
 	{
-		this.hand = hand;
+		this.hand = new ArrayList<Card>(hand);
 	}
 	
 	//Get/Dequeue

@@ -1,4 +1,7 @@
 package ThisMeansWar;
+
+import java.util.ArrayList;
+
 public class Game
 {
 	//Singleton Pattern
@@ -6,13 +9,12 @@ public class Game
 
 	public static void main(String[] args)
 	{
-		//get Singleton Deck Instance
-		deck = Deck.getInstance();
-		//refill deck 
-		System.out.println(deck.deal());
-		// Deal half the deck to each player 
-		// one at a time face down
-		
+		//test
+		PlayerFactory playerFactory = new TwoPlayerFactory();
+		ArrayList<Player> players = playerFactory.createPlayers();
+		Player curr = players.get(0);
+		for (int s = 0; s < 27; s++)
+			System.out.println(curr.getCard());
 		// reveal one card from each player
 		
 		// check if one is greater than the other, winner
