@@ -22,8 +22,9 @@ public class Game
 				//Tie, both players draw 3 cards, then it's war() again!
 				for (int i = 0; i < 3; i++)
 				{
-					Card pOne = players.get(0).getCard();
-					Card pTwo = players.get(1).getCard();
+					Card pOne = players.get(0).getCard(true);
+					Card pTwo = players.get(1).getCard(true);
+					
 					if (pOne == null)
 					{
 						gameEnd(1);
@@ -39,17 +40,16 @@ public class Game
 					round.add(pTwo);
 					
 				}
-			
+				//6 cards lie face down on the table if no one has busted out
+				//loop sends players back to call war() with switch case logic
 				break;
 			case (1):
 				//Player 1 wins
-				System.out.println("Player 1 wins");
 				players.get(0).addCards(round);
 				round.clear();
 				break;
 			case (-1):
 				//Player 2 wins
-				System.out.println("Player 2 wins");
 				players.get(1).addCards(round);
 				round.clear();
 				break;
@@ -66,8 +66,8 @@ public class Game
 	private static int war()
 	{
 		// reveal one card from each player
-		round.add(players.get(0).getCard());
-		round.add(players.get(1).getCard());
+		round.add(players.get(0).getCard(false));
+		round.add(players.get(1).getCard(false));
 		int end = round.size() - 1;
 		System.out.println("Player 1 plays " + round.get(0) + "\nPlayer 2 plays " + round.get(1));
 		//Return comparison

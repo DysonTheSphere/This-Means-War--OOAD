@@ -22,6 +22,9 @@ public class TwoPlayerFactory implements PlayerFactory
 		
 		Player one = new Player(randomDeck.subList(0, 26));
 		Player two = new Player(randomDeck.subList(26, 52));
+		Announcer announcer = new Announcer();
+		one.addObserver(announcer);
+		two.addObserver(announcer);
 		players.add(one);
 		players.add(two);
 		
